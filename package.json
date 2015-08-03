@@ -1,0 +1,24 @@
+{
+  "name": "autodts",
+  "version": "0.0.1",
+  "description": "Autodts generates d.ts files for publishing TypeScript projects on npm.",
+  "homepage": "https://github.com/charto/autodts",
+  "bugs": {
+    "url": "https://github.com/charto/autodts/issues"
+  },
+  "license": "MIT",
+  "author": "Juha Järvi",
+  "bin": {
+    "autodts": "./autodts"
+  },
+  "dependencies": {
+    "@lib/autolink": "0.0.1",
+    "dts-generator": "~1.5.0",
+    "minimist": "~1.1.3",
+    "mkdirp": "^0.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charto/autodts.git"
+  }
+}
