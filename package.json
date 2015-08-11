@@ -8,17 +8,17 @@
   },
   "license": "MIT",
   "author": "Juha Järvi",
+  "main": "autodts.js",
   "bin": {
     "autodts": "./autodts"
-  },
-  "dependencies": {
-    "@lib/autolink": "0.0.1",
-    "dts-generator": "~1.5.0",
-    "minimist": "~1.1.3",
-    "mkdirp": "^0.5.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/charto/autodts.git"
+  },
+  "dependencies": {
+    "@lib/autolink": "0.0.1",
+    "minimist": "~1.1.3",
+    "mkdirp": "~0.5.1"
   }
 }

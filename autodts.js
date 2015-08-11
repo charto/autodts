@@ -107,7 +107,7 @@ function doGenerate(packageConf, basePath) {
 		generatorConf.files.join(' ')
 	].join(' '));
 
-	require('dts-generator').generate(generatorConf);
+	require(link.resolve('dts-generator', '.')).generate(generatorConf);
 }
 
 var argv = require('minimist')(process.argv.slice(2));
