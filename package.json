@@ -1,6 +1,6 @@
 {
   "name": "autodts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Autodts generates d.ts files for publishing TypeScript projects on npm.",
   "homepage": "https://github.com/charto/autodts",
   "bugs": {

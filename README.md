@@ -16,15 +16,14 @@ It's best to run `autodts` from the `package.json` file of a Node.js module. Her
   "version": "0.0.1",
   "description": "Example of a TypeScript-based package",
   "scripts": {
-    "install": "autodts link",
-    "prepublish": "tsc && autodts generate"
+    "prepublish": "autodts link && tsc && autodts generate"
   },
   "typescript": {
     "definition": "index.d.ts"
   },
   "dependencies": {
-    "autodts": "~0.0.1",
-    "@lib/dependency-example": "0.0.1"
+    "autodts": "~0.0.2",
+    "@lib/dependency-example": "0.0.2"
   },
   "devDependencies": {
     "dts-generator": "~1.5.0",
@@ -42,11 +41,13 @@ It's best to run `autodts` from the `package.json` file of a Node.js module. Her
 
 This allows pulling the type information of all required modules into a TypeScript source file with a single `/// <reference path = "typings/auto.d.ts" />` statement.
 
+It's possible to change the output file path using the `--out` parameter, for example: `autodts link --out typings/tsd.d.ts`.
+
 `autodts generate` calls [dts-generator](https://www.npmjs.com/package/dts-generator) to produce a single `.d.ts` file with all type information in the package. It will be automatically written to the path defined in the `definition` setting in the `typescript` section of your `package.json` file. Using it requires a particular package structure, otherwise it's better to use `dts-generator` directly.
 
 To use the `generate` command, you should add `dts-generator` to your `devDependencies`. `autodts` doesn't automatically require it, because it's quite large and not needed for the `link` command.
 
-`autodts generate` is meant for developing and compiling modules, `autodts link` for installing them.
+`autodts link` is meant for the common case of using TypeScript-based npm packages during development, `autodts generate` for the rarer event of publishing them.
 
 License
 =======
