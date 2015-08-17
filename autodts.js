@@ -98,7 +98,7 @@ function doGenerate(packageConf, basePath) {
 	};
 
 	console.log([
-		'dts-generator --name',
+		'autodts-generator --name',
 		generatorConf.name,
 		'--baseDir',
 		generatorConf.baseDir,
@@ -107,7 +107,7 @@ function doGenerate(packageConf, basePath) {
 		generatorConf.files.join(' ')
 	].join(' '));
 
-	require(link.resolve('dts-generator', '.')).generate(generatorConf);
+	require(link.resolve('@lib/autodts-generator', '.')).generate(generatorConf);
 }
 
 var argv = require('minimist')(process.argv.slice(2));
