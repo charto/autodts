@@ -84,10 +84,10 @@ function doGenerate(packageConf, basePath) {
 	var tsconfigPath = path.resolve(basePath, 'tsconfig.json');
 	var tsConf = parseTsconfig(tsconfigPath);
 
-	// Assume main TypeScript compiler output file name comes from the first file listed in tsconfig.json.
-	// Remove its .ts extension because the compiler will change it.
+	// If we have a files property assume main TypeScript compiler output file name comes from the first file listed in tsconfig.json and
+	// remove its .ts extension because the compiler will change it. Otherwise default to the package name.
+	var tsBaseName = tsConf.files ? path.basename(tsConf.files[0]).replace(/\.ts$/i, '') : packageConf.name;
 
-	var tsBaseName = path.basename(tsConf.files[0]).replace(/\.ts$/i, '');
 	var compiledPath = path.join(path.relative(basePath, tsConf.outDir), tsBaseName);
 
 	var generatorConf = {
