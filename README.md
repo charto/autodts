@@ -24,7 +24,7 @@ It's best to run `autodts` from the `package.json` file of a Node.js module. Her
     "definition": "index.d.ts"
   },
   "dependencies": {
-    "autodts": "~0.0.5",
+    "autodts": "~0.0.6",
     "@lib/dependency-example": "0.0.3"
   },
   "devDependencies": {
