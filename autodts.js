@@ -83,10 +83,22 @@ function doLink(conf, outputPath) {
 function doGenerate(packageConf, basePath) {
 	var tsconfigPath = path.resolve(basePath, 'tsconfig.json');
 	var tsConf = parseTsconfig(tsconfigPath);
+	var fileList = tsConf.files;
+	var tsBaseName = packageConf.name;
 
-	// If we have a files property assume main TypeScript compiler output file name comes from the first file listed in tsconfig.json and
-	// remove its .ts extension because the compiler will change it. Otherwise default to the package name.
-	var tsBaseName = tsConf.files ? path.basename(tsConf.files[0]).replace(/\.ts$/i, '') : packageConf.name;
+	if(fileList) {
+		// If we have a files property assume main TypeScript compiler output file name comes from
+		// the first .ts file listed in tsconfig.json and remove its extension because the compiler will change it.
+		// Otherwise default to the package name.
+
+		for(var fileNum = 0; fileNum < fileList.length; ++fileNum) {
+			var fileName = fileList[fileNum];
+
+			if(fileName.match(/\.ts$/i)) {
+				tsBaseName = path.basename(fileName).replace(/\.ts$/i, '');
+			}
+		}
+	}
 
 	var compiledPath = path.join(path.relative(basePath, tsConf.outDir), tsBaseName);
 
