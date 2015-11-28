@@ -1,3 +1,8 @@
+DEPRECATED
+==========
+
+This module will no longer be updated, since TypeScript 1.8 already includes the same functionality.
+
 autodts
 =======
 
